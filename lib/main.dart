@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world_flutter/myApp.dart';
 
-//import 'package:hello_world_flutter/myApp.dart';
-//import 'package:hello_world_flutter/Introduction_to_widgets/myScaffold.dart';
-//import 'package:hello_world_flutter/Introduction_to_widgets/tutorialHome.dart';
-//import 'package:hello_world_flutter/Introduction_to_widgets/shoppingList.dart';
-import 'package:hello_world_flutter/Building_Layouts/myApp.dart';
+void main() => runApp(MyApp());
 
 //void main() => runApp(MyApp());
 //void main() {
@@ -26,4 +23,8 @@ import 'package:hello_world_flutter/Building_Layouts/myApp.dart';
 //}
 void main() {
   runApp(MyApp());
+}
+// void main() => runApp(MyApp());
+void main() {
+  new Routes();
 }
