@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world_flutter/blocs/home_page_bloc.dart';
 import 'package:hello_world_flutter/blocs/bloc_provider.dart';
+import 'package:hello_world_flutter/pages/albu';
+import 'package:hello_world_flutter/blocs/albums_page_bloc.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -15,7 +17,10 @@ class _HomePageState extends State<HomePage> {
   Animation<double> _heigtAnimation;
 
   final _widgetOptions = [
-    BlockProvider<
+    BlocProvider<AlbumPageBloc>(
+      bloc: AlbumsPageBloc(),
+      child: AlbumsPage(),
+    )
   ]
 
   @override
