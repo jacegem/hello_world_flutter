@@ -3,6 +3,8 @@ import 'account.dart';
 import 'settings.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const String routeName = '/home';
+
   @override
   HomeScreenState createState() => new HomeScreenState();
 }
@@ -35,7 +37,8 @@ class HomeScreenState extends State<HomeScreen> {
     var myNavChildren = [
       headerChild,
       getNavItem(Icons.settings, "Settings", SettingsScreen.routeName),
-      getNavItem(Icons.home, "Home", "/"),
+      // getNavItem(Icons.home, "Home", "/"),
+      getNavItem(Icons.home, "Home2", HomeScreen.routeName),
       getNavItem(Icons.account_box, "Account", AccountScreen.routeName),
       aboutChild
     ];

@@ -6,11 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:hello_world_flutter/screens/settings.dart';
 import 'screens/home.dart';
 import 'screens/account.dart';
+import 'screens/home.dart';
 
 class Routes {
   var routes = <String, WidgetBuilder>{
     SettingsScreen.routeName: (BuildContext context) => new SettingsScreen(),
     AccountScreen.routeName: (BuildContext context) => new AccountScreen(),
+    HomeScreen.routeName: (BuildContext context) => new HomeScreen(),
   };
 
   Routes() {
