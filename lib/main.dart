@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'Learn_Flutter/myApp.dart';
+// import 'package:flutter/rendering.dart';
 
 void main() {
+  // debugPaintSizeEnabled = true;
+  // debugPaintBaselinesEnabled = true;
+  // debugPaintPointersEnabled = true;
   runApp(MyApp());
 }
 // import 'package:hello_world_flutter/myApp.dart';
