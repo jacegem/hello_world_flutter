@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'Learn_Flutter/myApp.dart';
 // import 'package:flutter/rendering.dart';
+import 'bottomTab/bottomTabApp.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
   // debugPaintBaselinesEnabled = true;
   // debugPaintPointersEnabled = true;
-  runApp(MyApp());
+  // runApp(MyApp());
+  runApp(BottomTabApp());
 }
 // import 'package:hello_world_flutter/myApp.dart';
 
