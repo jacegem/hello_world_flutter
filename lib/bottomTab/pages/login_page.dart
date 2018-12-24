@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/login_form.dart';
 import '../services/fetch.dart';
 import '../models/user.dart';
+import '../navs/main_tab_nav.dart';
 
 class LoginPage extends StatefulWidget {
   static const String routeName = '/login';
@@ -19,16 +20,20 @@ class _LoginPageState extends State<LoginPage> {
       content: new Text('login attempt: $email with $password'),
     ));
     User user = await fetchUserWithEmailPassword(email, password);
-    print('user: ${user}');
+    print('user: $user');
+
+    // 인증되었으면,
+    Navigator.pushReplacementNamed(context, MainTabNav.ROUTE);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _scaffoldKey,
-        appBar: AppBar(
-          title: Text('Email Login'),
-        ),
-        body: LoginForm(_login));
+      key: _scaffoldKey,
+      appBar: AppBar(
+        title: Text('Email Login'),
+      ),
+      body: LoginForm(_login),
+    );
   }
 }

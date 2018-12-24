@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './navs/auth_loading_page.dart';
+import './navs/auth_loading_nav.dart';
+import './navs/main_tab_nav.dart';
 import './pages/login_page.dart';
 import './pages/email_confirm_page.dart';
-import './pages/main_tab_page.dart';
 import './blocs/bloc_provider.dart';
 import './blocs/user_bloc.dart';
 import './pages/loading_page.dart';
@@ -10,10 +10,10 @@ import './pages/loading_page.dart';
 class BottomTabApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
     AuthLoadingNav.routeName: (BuildContext context) => new AuthLoadingNav(),
+    MainTabNav.ROUTE: (BuildContext context) => new MainTabNav(),
     LoginPage.routeName: (BuildContext context) => new LoginPage(),
     EmailConfirmPage.routeName: (BuildContext context) =>
         new EmailConfirmPage(),
-    MainTabPage.routeName: (BuildContext context) => new MainTabPage(),
   };
 
   @override
@@ -21,8 +21,8 @@ class BottomTabApp extends StatelessWidget {
     return new MaterialApp(
         title: 'Flutter Flat App',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
-          primaryColor: Colors.blue,
+          primarySwatch: Colors.deepOrange,
+          primaryColor: Colors.blueGrey,
           accentColor: Colors.blueAccent,
         ),
         home: BlocProvider<UserBloc>(

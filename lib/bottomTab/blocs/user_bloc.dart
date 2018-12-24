@@ -41,7 +41,7 @@ class UserBloc extends BlocBase {
     }
 
     _user.status = User.LOADED;
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 1), () {
       userSink.add(_user);
     });
   }

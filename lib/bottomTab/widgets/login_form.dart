@@ -21,44 +21,47 @@ class LoginForm extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Form(
           key: _formKey,
-          child: ListView(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(top: 20.0),
-                child: TextFormField(
-                  autofocus: true,
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.email),
-                    labelText: 'Email *',
-                    border: const OutlineInputBorder(),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.only(top: 20.0),
+                  child: TextFormField(
+                    autofocus: true,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.email),
+                      labelText: 'Email *',
+                      border: const OutlineInputBorder(),
+                    ),
+                    controller: _emailController,
+                    validator: (String value) =>
+                        value.isEmpty ? 'Email is required' : null,
                   ),
-                  controller: _emailController,
-                  validator: (String value) =>
-                      value.isEmpty ? 'Email is required' : null,
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 20.0),
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    icon: Icon(Icons.lock),
-                    border: const OutlineInputBorder(),
-                    labelText: 'Password *',
+                Container(
+                  padding: EdgeInsets.only(top: 20.0),
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.lock),
+                      border: const OutlineInputBorder(),
+                      labelText: 'Password *',
+                    ),
+                    controller: _passwordController,
+                    validator: (String value) =>
+                        value.isEmpty ? 'Password is required' : null,
+                    obscureText: true,
                   ),
-                  controller: _passwordController,
-                  validator: (String value) =>
-                      value.isEmpty ? 'Password is required' : null,
-                  obscureText: true,
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 20.0),
-                child: RaisedButton(
-                  onPressed: _login,
-                  child: Text('Login'),
-                ),
-              )
-            ],
+                Container(
+                  padding: EdgeInsets.only(top: 20.0),
+                  child: RaisedButton(
+                    onPressed: _login,
+                    child: Text('Login'),
+                  ),
+                )
+              ],
+            ),
           )),
     );
   }
