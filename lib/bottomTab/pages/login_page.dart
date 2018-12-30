@@ -4,6 +4,10 @@ import '../services/fetch.dart';
 import '../models/user.dart';
 import '../navs/main_tab_nav.dart';
 
+import '../blocs/user_bloc.dart';
+import '../blocs/bloc_provider.dart';
+import '../models/user.dart';
+
 class LoginPage extends StatefulWidget {
   static const String routeName = '/login';
 
@@ -21,6 +25,9 @@ class _LoginPageState extends State<LoginPage> {
     ));
     User user = await fetchUserWithEmailPassword(email, password);
     print('user: $user');
+
+    final UserBloc _userBloc = BlocProvider.of<UserBloc>(context);
+    _userBloc.
 
     // 인증되었으면,
     Navigator.pushReplacementNamed(context, MainTabNav.ROUTE);

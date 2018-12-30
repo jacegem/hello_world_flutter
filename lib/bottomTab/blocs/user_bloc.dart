@@ -20,9 +20,18 @@ class UserBloc extends BlocBase {
   StreamSink<User> get userSink => _userController.sink;
   Stream<User> get userStream => _userController.stream;
 
+  BehaviorSubject _fetchUserController = BehaviorSubject();
+  StreamSink get fetchUserSink => _fetchUserController.sink;
+
   UserBloc() {
     // 시작시에, 로컬 asyncstorage에서 가져온다.
     _loadUser();
+    // _userController.listen(onData);
+    _fetchUserController.stream.listen(fetchUser);
+  }
+
+  void fetchUser(_) {
+    userSink.add(new User());
   }
 
   Future<void> _loadUser() async {
@@ -49,5 +58,6 @@ class UserBloc extends BlocBase {
   @override
   void dispose() {
     _userController.close();
+    _fetchUserController.close();
   }
 }
