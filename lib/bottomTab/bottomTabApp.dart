@@ -21,8 +21,9 @@ class BottomTabApp extends StatelessWidget {
     return new MaterialApp(
         title: 'Flutter Flat App',
         theme: ThemeData(
+          brightness: Brightness.light,
           primarySwatch: Colors.deepOrange,
-          primaryColor: Colors.blueGrey,
+          primaryColor: Colors.lightBlue[800],
           accentColor: Colors.blueAccent,
         ),
         home: BlocProvider<UserBloc>(

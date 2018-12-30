@@ -29,11 +29,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        title: Text('Email Login'),
-      ),
-      body: LoginForm(_login),
-    );
+        key: _scaffoldKey,
+        appBar: AppBar(
+          title: Text('Email Login2'),
+        ),
+        body: GestureDetector(
+          child: LoginForm(_login),
+          onTap: () {
+            FocusScope.of(context).requestFocus(FocusNode());
+          },
+        ));
   }
 }

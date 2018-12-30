@@ -18,6 +18,7 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: new BoxDecoration(color: Colors.white24),
       padding: EdgeInsets.symmetric(horizontal: 20.0),
       child: Form(
           key: _formKey,
