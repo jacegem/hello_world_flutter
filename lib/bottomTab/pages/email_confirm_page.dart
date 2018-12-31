@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EmailConfirmPage extends StatelessWidget {
-  static const String routeName = '/emailconfirm';
+  static const String ROUTE = '/emailconfirm';
 
   @override
   Widget build(BuildContext context) {

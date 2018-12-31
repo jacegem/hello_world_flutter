@@ -22,6 +22,9 @@ dependencies:
   rxdart:
   shared_preferences: ^0.4.3
   http: ^0.12.0
+  google_sign_in: ^3.0.4
+  firebase_core: ^0.2.5+1
+  firebase_auth:
 
 dev_dependencies:
   flutter_test:

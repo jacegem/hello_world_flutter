@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../pages/check/check_page.dart';
+import '../pages/setting/setting_page.dart';
 
 class MainTabNav extends StatefulWidget {
   static const String ROUTE = '/maintab';
@@ -12,14 +14,14 @@ class MainTabNav extends StatefulWidget {
 class _MainTabNavState extends State<MainTabNav> {
   int _selectedIndex = 0;
   final _widgetOptions = [
+    CheckPage(),
     Scaffold(
       appBar: AppBar(
         title: Text('home'),
       ),
       body: Text('Index 0: Home'),
     ),
-    Text('Index 1: Business'),
-    Text('Index 2: School'),
+    SettingPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -36,11 +38,11 @@ class _MainTabNavState extends State<MainTabNav> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.business), title: Text('Business')),
+              icon: Icon(Icons.check), title: Text('Check')),
+          BottomNavigationBarItem(icon: Icon(Icons.chat), title: Text('Chat')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.school), title: Text('School')),
+              icon: Icon(Icons.settings), title: Text('Settings')),
         ],
         currentIndex: _selectedIndex,
         fixedColor: Colors.deepPurple,

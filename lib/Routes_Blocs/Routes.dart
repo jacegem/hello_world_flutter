@@ -10,7 +10,7 @@ import 'screens/home.dart';
 
 class Routes {
   var routes = <String, WidgetBuilder>{
-    SettingsScreen.routeName: (BuildContext context) => new SettingsScreen(),
+    SettingsScreen.ROUTE: (BuildContext context) => new SettingsScreen(),
     AccountScreen.routeName: (BuildContext context) => new AccountScreen(),
     HomeScreen.routeName: (BuildContext context) => new HomeScreen(),
   };

@@ -9,7 +9,7 @@ import '../blocs/bloc_provider.dart';
 import '../models/user.dart';
 
 class LoginPage extends StatefulWidget {
-  static const String routeName = '/login';
+  static const String ROUTE = '/login';
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -17,6 +17,19 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+  UserBloc _userBloc;
+
+  @override
+  initState() {
+    super.initState();
+    _userBloc = BlocProvider.of<UserBloc>(context);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _userBloc.dispose();
+  }
 
   void _login(String email, String password) async {
     print('login attempt: $email with $password');
@@ -26,8 +39,8 @@ class _LoginPageState extends State<LoginPage> {
     User user = await fetchUserWithEmailPassword(email, password);
     print('user: $user');
 
-    final UserBloc _userBloc = BlocProvider.of<UserBloc>(context);
-    _userBloc.
+    // final UserBloc _userBloc = BlocProvider.of<UserBloc>(context);
+    _userBloc.userLoginSink.add(email);
 
     // 인증되었으면,
     Navigator.pushReplacementNamed(context, MainTabNav.ROUTE);
@@ -38,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
-          title: Text('Email Login2'),
+          title: Text('Login'),
         ),
         body: GestureDetector(
           child: LoginForm(_login),

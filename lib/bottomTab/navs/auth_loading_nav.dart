@@ -10,7 +10,7 @@ import '../pages/user_info_page.dart';
 import '../pages/loading_page.dart';
 
 class AuthLoadingNav extends StatelessWidget {
-  static const String routeName = "/authloading";
+  static const String ROUTE = "/authloading";
 
   @override
   Widget build(BuildContext context) {

@@ -18,7 +18,7 @@ class User {
   String token;
   String status;
 
-  User({this.token, this.status});
+  User({this.token, this.status, this.firstName});
 
   User.fromJson(Map<String, dynamic> json) {
     firstName = json[FIRST_NAME];
