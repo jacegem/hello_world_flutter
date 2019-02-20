@@ -8,6 +8,8 @@ class FireworksNode extends NodeWithSize {
 
   @override
   void update(double dt) {
+    print('countDown: $_countDown\t dt: $dt');
+
     if (_countDown <= 0.0) {
       _addExplosion();
       _countDown = randomDouble();

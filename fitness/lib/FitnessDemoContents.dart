@@ -71,6 +71,12 @@ class _FitnessDemoContentsState extends State<FitnessDemoContents> {
       child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            new Flexible(
+              child: new Container(
+                  decoration: new BoxDecoration(color: Colors.grey[800]),
+                  child: new SpriteWidget(
+                      workoutAnimation, SpriteBoxTransformMode.scaleToFit)),
+            ),
             new Padding(
               padding: new EdgeInsets.only(top: 20.0),
               child: new Text(
@@ -78,8 +84,53 @@ class _FitnessDemoContentsState extends State<FitnessDemoContents> {
                 style: Theme.of(context).textTheme.title,
               ),
             ),
+            new Padding(
+                padding: new EdgeInsets.only(top: 20.0, bottom: 20.0),
+                child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      _createInfoPanelCell(
+                          Icons.accessibility, '$_count', 'COUNT'),
+                      _createInfoPanelCell(
+                          Icons.timer, _formatSeconds(_time), 'TIME'),
+                      _createInfoPanelCell(Icons.flash_on, '$kcal', 'KCAL')
+                    ])),
+            new Padding(
+                padding: new EdgeInsets.only(bottom: 16.0),
+                child: new SizedBox(
+                    width: 300.0,
+                    height: 72.0,
+                    child: new RaisedButton(
+                        onPressed: onButtonPressed,
+                        color: buttonColor,
+                        child: new Text(buttonText,
+                            style: new TextStyle(
+                                color: Colors.white, fontSize: 20.0)))))
           ]),
     );
+  }
+
+  Widget _createInfoPanelCell(IconData icon, String value, String description) {
+    Color color;
+    if (workoutAnimation.workingOut)
+      color = Colors.black87;
+    else
+      color = Theme.of(context).disabledColor;
+
+    return new Container(
+        width: 100.0,
+        child: new Center(
+            child: new Column(children: <Widget>[
+          new Icon(icon, size: 48.0, color: color),
+          new Text(value, style: new TextStyle(fontSize: 24.0, color: color)),
+          new Text(description, style: new TextStyle(color: color))
+        ])));
+  }
+
+  String _formatSeconds(int seconds) {
+    int minutes = seconds ~/ 60;
+    String secondsStr = "${seconds % 60}".padLeft(2, '0');
+    return '$minutes:$secondsStr';
   }
 
   void startWorkout() {

@@ -9,7 +9,7 @@ class FitnessDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(title: new Text('Fitness')),
+        appBar: new AppBar(title: new Text('Fitness1')),
         body: new FitnessDemoContents());
   }
 }
