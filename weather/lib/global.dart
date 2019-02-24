@@ -21,3 +21,5 @@ const List<Color> kBackgroundColorsBottom = const <Color>[
   const Color(0xff4c5471),
   const Color(0xffe0e3ec)
 ];
+
+enum WeatherType { sun, rain, snow }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:spritewidget/spritewidget.dart';
-import 'package:weather/global.dart' as global;
+import 'package:weather/WeatherButton.dart';
+import 'package:weather/WeatherWorld.dart';
+import 'package:weather/global.dart' as g;
+import 'package:weather/global.dart';
 
 class WeatherDemo extends StatefulWidget {
   static const String routeName = '/weather';
@@ -13,8 +16,8 @@ class _WeatherDemoState extends State<WeatherDemo> {
   // This method loads all assets that are needed for the demo.
   Future<Null> _loadAssets(AssetBundle bundle) async {
     // Load images using an ImageMap
-    global.images = new ImageMap(bundle);
-    await global.images.load(<String>[
+    g.images = new ImageMap(bundle);
+    await g.images.load(<String>[
       'assets/clouds-0.png',
       'assets/clouds-1.png',
       'assets/ray.png',
@@ -28,8 +31,7 @@ class _WeatherDemoState extends State<WeatherDemo> {
     // Load the sprite sheet, which contains snowflakes and rain drops.
     String json = await DefaultAssetBundle.of(context)
         .loadString('assets/weathersprites.json');
-    global.sprites =
-        new SpriteSheet(global.images['assets/weathersprites.png'], json);
+    g.sprites = new SpriteSheet(g.images['assets/weathersprites.png'], json);
   }
 
   void initState() {
@@ -56,8 +58,67 @@ class _WeatherDemoState extends State<WeatherDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: child,
-    );
+    // Until assets are loaded we are just displaying a blue screen.
+    // If we were to load many more images, we might want to do some
+    // loading animation here.
+    if (!assetsLoaded) {
+      return new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Weather'),
+        ),
+        body: new Container(
+          decoration: new BoxDecoration(
+            color: const Color(0xff4aaafb),
+          ),
+        ),
+      );
+    }
+
+    // All assets are loaded, build the whole app with weather buttons
+    // and the WeatherWorld.
+    return new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Weather'),
+        ),
+        body: new Material(
+            child: new Stack(
+          children: <Widget>[
+            new SpriteWidget(weatherWorld),
+            new Align(
+                alignment: new FractionalOffset(0.5, 0.8),
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new WeatherButton(
+                      onPressed: () {
+                        setState(() {
+                          weatherWorld.weatherType = g.WeatherType.sun;
+                        });
+                      },
+                      selected: weatherWorld.weatherType == WeatherType.sun,
+                      icon: 'assets/icon-sun.png',
+                    ),
+                    new WeatherButton(
+                      onPressed: () {
+                        setState(() {
+                          weatherWorld.weatherType = WeatherType.rain;
+                        });
+                      },
+                      selected: weatherWorld.weatherType == WeatherType.rain,
+                      icon: 'assets/icon-rain.png',
+                    ),
+                    new WeatherButton(
+                      onPressed: () {
+                        setState(() {
+                          weatherWorld.weatherType = WeatherType.snow;
+                        });
+                      },
+                      selected: weatherWorld.weatherType == WeatherType.snow,
+                      icon: 'assets/icon-snow.png',
+                    )
+                  ],
+                ))
+          ],
+        )));
   }
 }
