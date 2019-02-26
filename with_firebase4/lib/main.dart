@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:with_firebase2/mlkit/ml_home.dart';
+import 'package:with_firebase4/curd/crud_sample.dart';
 
 void main() => runApp(new MyApp());
 
@@ -10,17 +10,18 @@ class MyApp extends StatelessWidget {
   static FirebaseAnalyticsObserver observer =
       new FirebaseAnalyticsObserver(analytics: analytics);
 
-  // This widget is the root of your application
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: new ThemeData(
-        primaryColor: Colors.blue,
+        primarySwatch: Colors.blue,
       ),
       navigatorObservers: <NavigatorObserver>[observer],
-      home: new MLHome(),
+      // home: new WallScreen(analytics: analytics, observer: observer),
+      home: new CrudSample(),
     );
   }
 }

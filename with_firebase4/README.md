@@ -1,6 +1,6 @@
-# with_firebase2
+# with_firebase4
 
-A new Flutter project.
+A new Flutter application.
 
 ## Getting Started
 

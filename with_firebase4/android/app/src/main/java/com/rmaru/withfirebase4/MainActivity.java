@@ -1,4 +1,4 @@
-package com.example.withfirebase2;
+package com.rmaru.withfirebase4;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

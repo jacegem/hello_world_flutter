@@ -1,5 +1,5 @@
-name: with_firebase2
-description: A new Flutter project.
+name: with_firebase4
+description: A new Flutter application.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,11 +19,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  firebase_core: ^0.2.5 # add dependency for Firebase Core
-  firebase_analytics: ^1.0.4 # add dependency for Google Analytics for Firebase
-  mlkit: ^0.9.0
-  # firebase_ml_vision: 0.2.1
-  image_picker: 0.4.12+1
+  firebase_auth: ^0.8.1+3
+  cloud_firestore: ^0.9.5+2
+  firebase_core: ^0.3.0
+  firebase_analytics: ^2.0.2+1
+  google_sign_in: ^4.0.1+1
 
 dev_dependencies:
   flutter_test:
@@ -38,8 +38,6 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-    - assets/wallfy.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg
