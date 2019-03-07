@@ -3,6 +3,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:with_firebase4/curd/crud_sample.dart';
 import 'package:with_firebase4/login.dart';
+import 'package:with_firebase4/quotes/quotes.dart';
 import 'package:with_firebase4/wallpaper/fb.dart';
 import 'package:with_firebase4/wallpaper/wall_paper.dart';
 
@@ -16,14 +17,16 @@ class LoginApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: new ThemeData(primarySwatch: Colors.green),
-        // home: LoginPage(),
-        // home: new WallScreen(
-        //   analytics: analytics,
-        //   observer: observer,
-        // ),
-        home: FirebaseTest());
+      debugShowCheckedModeBanner: false,
+      theme: new ThemeData(primarySwatch: Colors.green),
+      // home: LoginPage(),
+      // home: new WallScreen(
+      //   analytics: analytics,
+      //   observer: observer,
+      // ),
+      // home: FirebaseTest(),
+      home: QuotesScreen(),
+    );
   }
 }
 
