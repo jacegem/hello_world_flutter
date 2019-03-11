@@ -13,10 +13,9 @@ class TimerPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // TODO: implement paint
     Paint paint = Paint()
       ..color = backgroundColor
-      ..strokeWidth = 5.0
+      ..strokeWidth = 15.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
 
@@ -30,7 +29,6 @@ class TimerPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(TimerPainter old) {
-    // TODO: implement shouldRepaint
     return animation.value != old.animation.value ||
         color != old.color ||
         backgroundColor != old.backgroundColor;
