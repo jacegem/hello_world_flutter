@@ -1,15 +1,21 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:flutter/material.dart';
-
+import 'package:reorderables_example/calendar_screen.dart';
+import 'package:reorderables_example/chart_screen.dart';
+import 'package:reorderables_example/line_chart_screen.dart';
+import 'package:intl/date_symbol_data_local.dart';
 // import './table_example.dart';
 import './wrap_example.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 // import './nested_wrap_example.dart';
 // import './column_example1.dart';
 // import './column_example2.dart';
 // import './row_example.dart';
 // import './sliver_example.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  initializeDateFormatting().then((_) => runApp(MyApp()));
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -17,6 +23,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Reorderables Demo',
+      // localizationsDelegates: [
+      //   GlobalMaterialLocalizations.delegate,
+      //   GlobalWidgetsLocalizations.delegate,
+      // ],
+      // supportedLocales: [
+      //   const Locale('en', 'US'), // English
+      //   const Locale('ko', 'KR'),
+      // ],
       home: MyHomePage(title: 'Reorderables Demo Home Page'),
     );
   }
@@ -50,23 +64,20 @@ class _MyHomePageState extends State<MyHomePage> {
     // ColumnExample2(),
     // RowExample(),
     // SliverExample(),
-    WrapExample(),
-    WrapExample(),
-    WrapExample(),
-    WrapExample(),
-    WrapExample(),
-    WrapExample(),
+    ChartScreen(),
+    LineChartScreen(),
+    CalendarScreen(),
   ];
   final _bottomNavigationColor = Colors.blue;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
+      // appBar: AppBar(
+      //   // Here we take the value from the MyHomePage object that was created by
+      //   // the App.build method, and use it to set our appbar title.
+      //   title: Text(widget.title),
+      // ),
       body: _examples[_currentIndex],
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
