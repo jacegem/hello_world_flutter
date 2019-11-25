@@ -8,7 +8,7 @@ class WrapExample extends StatefulWidget {
 }
 
 class _WrapExampleState extends State<WrapExample> {
-  double _iconSize = 90;
+  double _iconSize = 95;
   List<Widget> _tiles;
 
   @override
@@ -51,7 +51,7 @@ class _WrapExampleState extends State<WrapExample> {
 
   @override
   Widget build(BuildContext context) {
-    double minSize = 80;
+    double minSize = 120;
     double space = 10;
     double setSize = minSize + space;
     double width = MediaQuery.of(context).size.width;
@@ -79,6 +79,7 @@ class _WrapExampleState extends State<WrapExample> {
     }
 
     var wrap = ReorderableWrap(
+        alignment: WrapAlignment.center,
         spacing: space,
         runSpacing: 4.0,
         padding: const EdgeInsets.all(8),
