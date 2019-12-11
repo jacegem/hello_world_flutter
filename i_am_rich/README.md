@@ -1,6 +1,6 @@
-# i_am_rich
+# I am Rich
 
-I am Rich
+android studio에서 `File → New → New Flutter Project` 로 프로젝트 생성
 
 ## Getting Started
 
