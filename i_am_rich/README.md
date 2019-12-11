@@ -1,6 +1,6 @@
 # I am Rich
 
-android studio에서 `File → New → New Flutter Project` 로 프로젝트 생성
+관련 내용은 https://wiki.rmaru.com/open/flutter-bootcamp-with-dart#i_am_rich_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8 에서 확인할 수 있습니다.
 
 ## Getting Started
 
