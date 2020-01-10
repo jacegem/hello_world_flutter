@@ -1,6 +1,6 @@
-# I am Rich
+# swarm_game
 
-관련 내용은 https://wiki.rmaru.com/open/flutter-bootcamp-with-dart 에서 확인할 수 있습니다.
+https://www.youtube.com/watch?v=o_eVKOqY48Q
 
 ## Getting Started
 
