@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie/constant/theme.dart';
+import 'package:flutter_movie/model/movie.dart';
 import 'package:mobx/mobx.dart';
 
 part 'movie_store.g.dart';
@@ -11,6 +12,9 @@ abstract class _MovieStore with Store {
 //    themeData = kDarkTheme;
 //  }
 //
-//  @observable
-//  ThemeData themeData;
+  @observable
+  List<Movie> movieList = [];
+
+  @observable
+  List<Movie> popularMovieList = [];
 }

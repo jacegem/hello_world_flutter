@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_movie/store/movie_store.dart';
 import 'package:flutter_movie/widget/side_menu.dart';
+import 'package:provider/provider.dart';
 
 import 'movie_list/movie_list_page.dart';
+import 'movie_list/widget/movie_cover_flow.dart';
 import 'movie_search_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,8 +14,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  MovieStore _movieStore;
+
   @override
   Widget build(BuildContext context) {
+    _movieStore ??= Provider.of<MovieStore>(context);
+
     return Scaffold(
       drawer: SideMenu(),
       appBar: AppBar(
@@ -50,13 +58,28 @@ class _HomePageState extends State<HomePage> {
                     ),
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => MovieListPage(title: '박스 오피스')));
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) {
+                            return MovieListPage(title: '박스 오피스');
+                          },
+                        ),
+                      );
                     },
                   )
                 ],
               ),
+            ),
+            Observer(
+              builder: (_) {
+                if (_movieStore.popularMovieList.length == 0) {
+                  return Container(
+                      height: 460,
+                      child: Center(child: CircularProgressIndicator()));
+                } else {
+                  return MovieCoverFlow(_movieStore.popularMovieList.reversed);
+                }
+              },
             )
           ],
         ),
